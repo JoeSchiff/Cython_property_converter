@@ -20,6 +20,7 @@ https://cython.readthedocs.io/en/stable/src/userguide/extension_types.html#prope
 * [Optional Arguments](#Optional-Arguments)
 
 
+<br/><br/>
 ## Summary
 Convert from this:
 ```
@@ -74,7 +75,6 @@ to here:
 
 
 <br><br>
-
 ### Optional Arguments ###
 ```
   -h, --help            show this help message and exit
@@ -90,6 +90,7 @@ to here:
                         True/False. Output all files or only modified files. Default: False (output all files)
 ```
 
+<br/><br/>
 ### Class declaration syntax ###
 
 Choose either Pure Python:
