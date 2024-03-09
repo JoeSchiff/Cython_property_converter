@@ -12,6 +12,13 @@ https://cython.readthedocs.io/en/stable/src/userguide/extension_types.html#prope
 <br><br>
 
 
+<br/><br/>
+### Table of Contents
+* [Summary](#Summary)
+* [Basic Usage](#Basic-Usage)
+
+
+## Summary
 Convert from this:
 ```
     property cheese:
