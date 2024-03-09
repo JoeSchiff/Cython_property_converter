@@ -76,10 +76,10 @@ to here:
 <br><br>
 
 ### Optional Arguments ###
-  -h, --help            show this help message and exit
-  --input_dir [INPUT_DIR], -i [INPUT_DIR]
-                        Path of the folder containing the files to be modified. Default: Current working directory.
-  --output_dir [OUTPUT_DIR], -o [OUTPUT_DIR]
+  -h, --help            show this help message and exit<br>
+  --input_dir [INPUT_DIR], -i [INPUT_DIR]<br>
+                        Path of the folder containing the files to be modified. Default: Current working directory.<br>
+  --output_dir [OUTPUT_DIR], -o [OUTPUT_DIR]<br>
                         Path of the folder to save the modified files. Default: create a subfolder called `new_syntax` where the
                         script is located.
   --class_dec {cython,pure_python}, -c {cython,pure_python}
