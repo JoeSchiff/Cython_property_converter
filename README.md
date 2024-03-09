@@ -74,6 +74,21 @@ to here:
 
 
 <br><br>
+
+### Optional Arguments ###
+  -h, --help            show this help message and exit
+  --input_dir [INPUT_DIR], -i [INPUT_DIR]
+                        Path of the folder containing the files to be modified. Default: Current working directory.
+  --output_dir [OUTPUT_DIR], -o [OUTPUT_DIR]
+                        Path of the folder to save the modified files. Default: create a subfolder called `new_syntax` where the
+                        script is located.
+  --class_dec {cython,pure_python}, -c {cython,pure_python}
+                        Which class declaration syntax to use. cython: `cdef class Spam:` or pure_python `@cython.cclass\nclass
+                        Spam:`. Default: cython
+  --output_mod_only OUTPUT_MOD_ONLY, -m OUTPUT_MOD_ONLY
+                        True/False. Output all files or only modified files. Default: False (output all files)
+
+
 ### Class declaration syntax ###
 
 Choose either Pure Python:
