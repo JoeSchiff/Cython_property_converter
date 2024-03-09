@@ -93,6 +93,7 @@ to here:
 ### Class declaration syntax ###
 
 Choose either Pure Python:
+`python converter.py --class_dec pure_python`
 ```
 @cython.cclass
 class Spam:
@@ -101,6 +102,7 @@ class Spam:
         ...
 ```
 or Cython:
+`python converter.py --class_dec cython`
 ```
 cdef class Spam:
     @property
