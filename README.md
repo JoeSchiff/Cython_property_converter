@@ -16,6 +16,8 @@ https://cython.readthedocs.io/en/stable/src/userguide/extension_types.html#prope
 ### Table of Contents
 * [Summary](#Summary)
 * [Basic Usage](#Basic-Usage)
+* [Doc strings](#Doc-strings)
+* [Optional Arguments](#Optional-Arguments)
 
 
 ## Summary
@@ -54,7 +56,7 @@ Give it a folder with the files to convert and a folder to put the new files:
 
 
 <br><br>
-### Docstrings ###
+### Doc strings ###
 Since there cannot be a docstring between the decorator and the def statement, the docstrings will be moved from here:
 ```
     property cheese:
