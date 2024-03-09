@@ -3,7 +3,7 @@
 ## Convert properties in Cython extension classes from the deprecated legacy syntax to the decorator syntax. ##
 
 <br><br>
-## ===  Under construction  === ##
+### ===  Under construction  === ###
 <br><br>
 
 ### Is this what you're trying to do? ###
@@ -18,10 +18,11 @@ https://cython.readthedocs.io/en/stable/src/userguide/extension_types.html#prope
 * [Basic Usage](#Basic-Usage)
 * [Doc strings](#Doc-strings)
 * [Optional Arguments](#Optional-Arguments)
+* [Requirements](#Requirements)
 
 
 <br/><br/>
-## Summary
+### Summary
 Convert from this:
 ```
     property cheese:
@@ -113,8 +114,8 @@ cdef class Spam:
 
 
 <br><br>
+### Requirements ###
 Compatible with indents that use spaces or tabs. However, an indent must not contain both tabs and spaces.
-
 <br>
 Requires Python >= 3.10.
 
