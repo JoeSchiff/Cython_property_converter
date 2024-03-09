@@ -4,15 +4,15 @@
 
 <br><br>
 ### ===  Under construction  === ###
-<br><br>
 
+
+<br><br>
 ### Is this what you're trying to do? ###
 ![](assets/screenshot.png)
 https://cython.readthedocs.io/en/stable/src/userguide/extension_types.html#properties
+
+
 <br><br>
-
-
-<br/><br/>
 ### Table of Contents
 * [Summary](#Summary)
 * [Basic Usage](#Basic-Usage)
