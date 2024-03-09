@@ -52,7 +52,7 @@ to this:
 
 <br><br>
 ### Basic Usage ###
-Give it a folder with the files to convert and a folder to put the new files:
+Give it a folder with the files to convert and a folder to put the new files:<br>
 `python converter.py -i /path/to/files/ -o /path/to/output/`
 
 
@@ -94,7 +94,7 @@ to here:
 <br/><br/>
 ### Class declaration syntax ###
 
-Choose either Pure Python:
+Choose either Pure Python:<br>
 `python converter.py --class_dec pure_python`
 ```
 @cython.cclass
@@ -103,7 +103,7 @@ class Spam:
     def cheese(self):
         ...
 ```
-or Cython:
+or Cython:<br>
 `python converter.py --class_dec cython`
 ```
 cdef class Spam:
@@ -116,7 +116,8 @@ cdef class Spam:
 <br><br>
 ### Requirements ###
 Compatible with indents that use spaces or tabs. However, an indent must not contain both tabs and spaces.
-<br>
+<br><br>
+
 Requires Python >= 3.10.
 
 
