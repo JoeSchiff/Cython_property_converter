@@ -4,6 +4,8 @@ import pathlib
 
 
 class IndentTracker:
+    """All code in a property block must have its indent reduced by 1 when converting."""
+
     prev_indent = ""
     current_indent = ""
     one_indent = ""
@@ -20,20 +22,10 @@ class IndentTracker:
 
         # Increase
         if len(IndentTracker.current_indent) > len(IndentTracker.prev_indent):
+
             # First indent
             if len(IndentTracker.prev_indent) == 0:
                 IndentTracker.one_indent = IndentTracker.current_indent
-            # Check expected
-            else:
-                if len(IndentTracker.current_indent) % len(IndentTracker.one_indent):
-                    # if len(IndentTracker.current_indent) != len(IndentTracker.prev_indent) + len(IndentTracker.one_indent):
-                    print(
-                        "WARNING indent",
-                        len(IndentTracker.current_indent),
-                        len(IndentTracker.prev_indent),
-                        len(IndentTracker.one_indent),
-                        line,
-                    )
 
         # End of property block
         if len(IndentTracker.current_indent) <= len(IndentTracker.property_indent):
@@ -47,19 +39,10 @@ class IndentTracker:
         """Prevent use of mixed spaces and tabs in an indent"""
         indent = get_indent(line)
         if " " in indent and "\t" in indent:
-            print(f"ERROR mixed indent on line number {index}: {repr(line)}")
+            print(f"ERROR mixed indent on line number {line_number}: {repr(line)}")
             print(f"\n An indent must not contain both tabs and spaces.\n")
-            # raise SystemExit
-        """
-            if IndentTracker.one_indent:
-                if "\t" in IndentTracker.one_indent:
-                    line = line.replace("    ", IndentTracker.one_indent)
-                else:
-                    line = line.replace("\t", IndentTracker.one_indent)
-            else:
-                spaces = line.count(" ")
-                line = line.replace("\t", " "*spaces)
-        """
+            raise SystemExit
+
         return line
 
 
@@ -164,8 +147,8 @@ class Docstring:
 
         line_one += ":"
         line_two = (
-            get_indent(line) + line_two.strip()
-        )  ## how does this work without adding one indent? same for docstring?
+            get_indent(line) + IndentTracker.one_indent + line_two.strip()
+        )  ## how does this work without adding one indent? same for docstring? +
 
         return "\n".join((line_one, Docstring.text, line_two))
 
@@ -199,7 +182,7 @@ def setup_parser():
         type=str,
         choices=("cython", "pure_python"),
         default="cython",
-        help="Which class declaration syntax to use. cython: `cdef class Spam:` or pure_python `@cython.cclass\nclass Spam:`. Default: cython",
+        help="Which class declaration syntax to use. cython: `cdef class Spam:` or pure_python `@cython.cclass\\nclass Spam:`. Default: cython",
     )
 
     parser.add_argument(
@@ -273,9 +256,7 @@ def convert_line(line):
         # Prop get
         case string if string.startswith("def __get__(self"):
             if IndentTracker.property_name:
-                modified_line = one_line_convert(
-                    line, "__get__"
-                )  ## can use line instead of mod line?
+                modified_line = one_line_convert(line, "__get__")
 
         # Prop set
         case string if string.startswith("def __set__(self"):
@@ -348,7 +329,7 @@ for file_path in pathlib.Path(input_path).glob("**/*"):
     modified_file_contents = ""
 
     with open(file_path) as file:
-        for index, line in enumerate(file.read().splitlines(), 1):
+        for line_number, line in enumerate(file.read().splitlines(), 1):
             IndentTracker.update_indent(line)
             modified_line = convert_line(line)
 
