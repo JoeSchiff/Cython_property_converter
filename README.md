@@ -16,8 +16,8 @@ https://cython.readthedocs.io/en/stable/src/userguide/extension_types.html#prope
 ### Table of Contents
 * [Summary](#Summary)
 * [Basic Usage](#Basic-Usage)
-* [Doc strings](#Doc-strings)
 * [Optional Arguments](#Optional-Arguments)
+* [Doc strings](#Doc-strings)
 * [Requirements](#Requirements)
 
 
@@ -58,24 +58,6 @@ Give it a folder with the files to convert and a folder to put the new files:<br
 
 
 <br><br>
-### Doc strings ###
-Since there cannot be a docstring between the decorator and the def statement, the docstrings will be moved from here:
-```
-    property cheese:
-        "A doc string can go here."
-        def __get__(self):
-            ...
-```
-to here:
-```
-    @property
-    def cheese(self):
-        "A doc string can go here."
-        ...
-```
-
-
-<br><br>
 ### Optional Arguments ###
 ```
   -h, --help            show this help message and exit
@@ -109,6 +91,25 @@ or Cython:<br>
 cdef class Spam:
     @property
     def cheese(self):
+        ...
+```
+
+
+
+<br><br>
+### Doc strings ###
+Since there cannot be a docstring between the decorator and the def statement, the docstrings will be moved from here:
+```
+    property cheese:
+        "A doc string can go here."
+        def __get__(self):
+            ...
+```
+to here:
+```
+    @property
+    def cheese(self):
+        "A doc string can go here."
         ...
 ```
 
